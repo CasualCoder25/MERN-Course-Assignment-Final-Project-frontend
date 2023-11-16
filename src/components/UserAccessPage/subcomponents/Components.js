@@ -2,7 +2,7 @@ import { Link } from "react-router-dom"
 import styled from "styled-components"
 
 export const Container = styled.div`
-  margin-top: 150px;
+  margin-top: 10vh;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
@@ -11,7 +11,7 @@ export const Container = styled.div`
   width: 800px;
 `
 export const ContainerMobile = styled.div`
-  margin-top: 80px;
+  margin-top: 10vh;
   background-color: #fff;
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);

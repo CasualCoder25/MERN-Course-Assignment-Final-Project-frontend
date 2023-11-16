@@ -38,7 +38,7 @@ const NavBar = () => {
             }
             id="navbarNavAltMarkup"
           >
-            <div class="navbar-nav">
+            <div className="navbar-nav">
               <Link
                 className="nav-link light-blue active p-3"
                 aria-current="page"

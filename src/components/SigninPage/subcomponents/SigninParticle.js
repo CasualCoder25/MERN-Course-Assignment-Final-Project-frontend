@@ -1,7 +1,7 @@
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
 
-const HomePageParticle = () => {
+const SigninParticle = () => {
   const loadParticles = async (main) => {
     await loadFull(main)
   }
@@ -132,4 +132,4 @@ const HomePageParticle = () => {
   )
 }
 
-export default HomePageParticle
+export default SigninParticle

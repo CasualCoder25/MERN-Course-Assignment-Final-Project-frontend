@@ -3,7 +3,7 @@ import "./NavBar.css"
 
 const AboutUs = () => {
   return (
-    <div className="bg-white p-5">
+    <div className="bg-white translucent p-5">
       <h2>Our Story</h2>
       <p>
         Our journey began with a simple idea: to create a digital space that

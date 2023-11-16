@@ -1,9 +1,8 @@
-import React from "react"
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
 
-function HomePageParticle() {
-  async function loadParticles(main) {
+const FeedbackPageParticle = () => {
+  const loadParticles = async (main) => {
     await loadFull(main)
   }
   return (
@@ -133,4 +132,4 @@ function HomePageParticle() {
   )
 }
 
-export default HomePageParticle
+export default FeedbackPageParticle

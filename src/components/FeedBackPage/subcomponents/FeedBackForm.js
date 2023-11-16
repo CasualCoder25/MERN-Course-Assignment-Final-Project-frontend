@@ -34,7 +34,7 @@ const FeedBackForm = () => {
       })
   }
   return (
-    <div className="bg-white p-5">
+    <div className="bg-white translucent p-5">
       <div>
         {displayMessage ? (
           error ? (

@@ -13,3 +13,6 @@
 .link-style {
   text-decoration: none;
 }
+.translucent {
+  opacity: 0.9;
+}

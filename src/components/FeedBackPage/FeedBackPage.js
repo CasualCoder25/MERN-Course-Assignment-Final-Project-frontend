@@ -1,4 +1,4 @@
-import HomePageParticle from "./subcomponents/HomePageParticle"
+import FeedbackPageParticle from "./subcomponents/FeedbackPageParticle"
 import NavBar from "./subcomponents/NavBar"
 import EmptyComponent from "./subcomponents/EmptyComponent"
 import FeedBackForm from "./subcomponents/FeedBackForm"
@@ -6,7 +6,7 @@ import FeedBackForm from "./subcomponents/FeedBackForm"
 const FeedbackPage = () => {
   return (
     <>
-      <HomePageParticle />
+      <FeedbackPageParticle />
       <NavBar />
       <EmptyComponent />
       <FeedBackForm />

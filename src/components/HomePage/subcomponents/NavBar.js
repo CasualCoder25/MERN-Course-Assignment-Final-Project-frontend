@@ -6,7 +6,7 @@ const NavBar = () => {
   const [collapse, setCollapse] = useState(true)
   return (
     <>
-      <nav className="navbar navbar-expand-lg navbar-light bg-light">
+      <nav className="navbar navbar-expand-lg navbar-light bg-light translucent">
         <div className="container-fluid">
           <Link
             className="navbar-brand text-white bg-darkblue rounded fw-bold p-3"
@@ -46,7 +46,7 @@ const NavBar = () => {
               >
                 Home
               </Link>
-              <Link className="nav-link p-3" to="/signin">
+              <Link className="nav-link p-3" to="/login">
                 Login
               </Link>
               <Link className="nav-link p-3" to="/signup">

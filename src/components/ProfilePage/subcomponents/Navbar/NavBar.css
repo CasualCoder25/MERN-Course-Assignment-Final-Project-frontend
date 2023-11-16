@@ -1,0 +1,18 @@
+.darkblue {
+  color: rgb(17, 17, 40);
+}
+.bg-darkblue {
+  background-color: rgb(17, 17, 40);
+}
+.bg-transparent {
+  background-color: none;
+}
+.light-blue {
+  color: blue !important;
+}
+.link-style {
+  text-decoration: none;
+}
+.translucent {
+  opacity: 0.9;
+}

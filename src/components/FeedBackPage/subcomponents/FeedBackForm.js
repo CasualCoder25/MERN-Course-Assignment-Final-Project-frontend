@@ -45,7 +45,7 @@ const FeedBackForm = () => {
             <div className="Title alert alert-success">Sent Feedback</div>
           )
         ) : null}
-        <div className="Title p-3">Help Us Improve!</div>
+        <div className="Title py-3">Help Us Improve!</div>
         <input
           value={emailVal}
           onChange={(event) => setEmail(event.target.value)}

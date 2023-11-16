@@ -7,8 +7,17 @@ export const Container = styled.div`
   border-radius: 10px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
   overflow: hidden;
-  height: 400px;
-  width: 678px;
+  height: 500px;
+  width: 800px;
+`
+export const ContainerMobile = styled.div`
+  margin-top: 80px;
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  overflow: hidden;
+  height: 550px;
+  width: 90%;
 `
 export const FormContainer = styled.div`
   display: flex;
@@ -32,6 +41,20 @@ export const SignUpContainer = styled.div`
   z-index:5;`
       : null}
 `
+export const SignUpContainerMobile = styled.div`
+  position: relative;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  width: 100%;
+  opacity: 0;
+  z-index: 1;
+  ${(props) =>
+    props.signup
+      ? `
+  opacity:1;
+  z-index:5;`
+      : null}
+`
 export const LoginContainer = styled.div`
   position: relative;
   height: 100%;
@@ -47,6 +70,20 @@ export const LoginContainer = styled.div`
   opacity: 0;`
       : null}
 `
+export const LoginContainerMobile = styled.div`
+  position: relative;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+  width: 100%;
+  top: -100%;
+  opacity: 1;
+  z-index: 2;
+  ${(props) =>
+    props.signup
+      ? `
+  opacity: 0;`
+      : null}
+`
 export const OverlayContainer = styled.div`
   display: flex;
   position: relative;
@@ -55,6 +92,7 @@ export const OverlayContainer = styled.div`
   overflow: hidden;
   height: 100%;
   width: 100%;
+  color: white;
 `
 export const LeftOverlayPanel = styled.div`
   position: relative;
@@ -65,6 +103,11 @@ export const LeftOverlayPanel = styled.div`
   left: 50%;
   opacity: 0;
   z-index: 11;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   ${(props) =>
     props.signup
       ? `
@@ -79,9 +122,14 @@ export const RightOverlayPanel = styled.div`
   background: rgb(38, 38, 76);
   transition: all 0.6s ease-in-out;
   width: 50%;
-  left: 1;
+  left: 0;
   opacity: 1;
   z-index: 12;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   ${(props) =>
     props.signup
       ? `
@@ -89,12 +137,17 @@ export const RightOverlayPanel = styled.div`
   opacity: 0;`
       : null}
 `
+export const ButtonRow = styled.div`
+  display: flex;
+  justify-content: center;
+`
 export const Form = styled.form`
   background-color: #ffffff;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 50px 0;
+  padding: 0 50px;
   height: 100%;
   text-align: center;
 `
@@ -118,6 +171,7 @@ export const Button = styled.button`
   letter-spacing: 1px;
   text-transform: uppercase;
   padding: 12px 45px;
+  margin: 10px;
   transition: transform 80ms ease-in;
   &:active {
     transform: scale(0.95);
@@ -130,6 +184,11 @@ export const GhostButton = styled(Button)`
   background-color: transparent;
   border-color: #ffffff;
 `
+export const GhostButtonMobile = styled(Button)`
+  background-color: transparent;
+  border-color: rgb(38, 38, 76);
+  color: rgb(38, 38, 76);
+`
 export const Anchor = styled(Link)`
   color: rgb(38, 38, 76);
   text-decoration: none;
@@ -141,5 +200,5 @@ export const Paragraph = styled.p`
   font-weight: 100;
   line-height: 20px;
   letter-spacing: 0.5px;
-  margin: 20px 0 30px;
+  margin: 10px 0 5px;
 `

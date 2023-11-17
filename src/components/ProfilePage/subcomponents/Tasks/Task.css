@@ -1,0 +1,160 @@
+.todo-wrapper{
+    background: rgb(38, 38, 76);
+    padding: 2%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0px 5px 7px rgb(27,27,27);
+    border-radius: 10px;
+  }
+  
+  .todo-input{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 1px solid rgb(78,78,78);
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+  }
+  
+  .todo-input-item{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-right: 25px;
+  
+  }
+  
+  .todo-input-item label{
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  .todo-input-item input{
+    padding: 8px;
+    border: none;
+    width: 250px;
+  }
+  
+  .todo-input-item input:focus{
+    outline: 2px solid rgb(0,230,122);;
+    
+  }
+  
+  .primary-btn{
+    background-color: cyan;
+    border: none;
+    margin-top: 28px;
+    width: 60px;
+    padding: 12px;
+    border-radius: 3px;
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan;
+  
+    
+    
+  }
+  
+  .primary-btn:active{
+    box-shadow: 0 0 5px cyan, 0 0 25px cyan, 0 0 50px cyan, 0 0 100px cyan, 0 0 200px cyan;
+    
+    
+  }
+  
+  
+  .secondaryBtn{
+    background-color: rgb(17,17,40);
+    color: white;
+    border: none;
+    border-radius: 0px;
+    margin-top: 25px;
+    padding: 10px;
+    width: fit-content;
+    cursor: pointer;
+  }
+  
+  .active{
+    background-color: aqua;
+  }
+  
+  .btn-area{
+    margin-bottom: 15px;
+  }
+  
+  .todo-list-item {
+    position: relative; 
+    background-color: rgb(28, 28, 66);
+    display: flex;
+    justify-content: space-between;
+    padding: 25px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+  }
+  
+  .todo-list-item::before,
+  .todo-list-item::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, deeppink, cyan); /* Gradient from pink to cyan */
+  }
+  
+  .todo-list-item::before {
+    top: 0;
+    left: 0;
+  }
+  
+  .todo-list-item::after {
+    bottom: 0;
+    right: 0;
+  }
+  
+  .todo-list-item h3{
+    font-size: 25px;
+    color: cadetblue;
+    font-weight: bold;
+    margin: 0;
+  }
+  
+  .todo-list-item p{
+    font-size: 14px;
+    color: rgb(161,161,161);
+    margin-top: 8px;
+  }
+  
+  .icon{
+    font-size: 35px;
+    cursor: pointer;
+    
+  }
+  
+  .icon:hover{
+    color: red;
+  }
+  
+  .check-icon{
+    font-size: 35px;
+    margin-left: 10px;
+    color:rgb(0,230,122);
+  
+  }
+  
+  .check-icon:hover{
+    color:rgb(4,196,106);
+  }
+  
+  .star.clicked {
+    color: goldenrod; 
+  }
+  
+  .star {
+    font-size: 35px;
+    cursor: pointer;
+  }
+ 

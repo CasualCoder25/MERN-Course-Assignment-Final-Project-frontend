@@ -7,8 +7,8 @@ import NavBar from "./subcomponents/Navbar/NavBar"
 const ProfilePage = () => {
   return (
     <>
-      <ProfileParticle />
       <NavBar />
+      <ProfileParticle />
       <ProfileComponents.ProfileContainer
         width={window.innerWidth}
         height={window.innerHeight}

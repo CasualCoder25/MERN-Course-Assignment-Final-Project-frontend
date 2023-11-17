@@ -1,9 +1,22 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
+import Axios from "axios"
 import "./NavBar.css"
 
 const NavBar = () => {
   const [collapse, setCollapse] = useState(true)
+  const handleMore = () => {
+    // HandleMore
+  }
+  const handleLogout = () => {
+    Axios.get("http://localhost:8000/user-create/logout").then((res) => {
+      if (res.data.status === 500) {
+        console.log(res.data.error)
+      } else {
+        window.location.href = "/"
+      }
+    })
+  }
   return (
     <>
       <nav className="navbar navbar-expand-lg navbar-light bg-light translucent">
@@ -46,12 +59,20 @@ const NavBar = () => {
               >
                 Home
               </Link>
-              <Link className="nav-link p-3" to="/login">
-                Login
-              </Link>
-              <Link className="nav-link p-3" to="/signup">
-                Signup
-              </Link>
+              <button
+                onClick={handleMore}
+                className="nav-link p-3"
+                style={{ textAlign: "left" }}
+              >
+                More
+              </button>
+              <button
+                onClick={handleLogout}
+                className="nav-link p-3"
+                style={{ textAlign: "left" }}
+              >
+                Logout
+              </button>
             </div>
           </div>
         </div>

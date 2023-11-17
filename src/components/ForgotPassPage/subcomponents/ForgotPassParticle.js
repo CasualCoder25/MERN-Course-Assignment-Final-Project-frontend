@@ -1,7 +1,7 @@
 import Particles from "react-tsparticles"
 import { loadFull } from "tsparticles"
 
-const ProfileParticle = () => {
+const ForgotPassParticle = () => {
   const loadParticles = async (main) => {
     await loadFull(main)
   }
@@ -16,7 +16,7 @@ const ProfileParticle = () => {
         },
         particles: {
           number: {
-            value: 30,
+            value: 10,
             density: {
               enable: false,
               value_area: 800,
@@ -26,7 +26,7 @@ const ProfileParticle = () => {
             value: "#fff",
           },
           shape: {
-            type: "circle",
+            type: "star",
             options: {
               sides: 5,
             },
@@ -36,17 +36,17 @@ const ProfileParticle = () => {
             random: false,
             anim: {
               enable: false,
-              speed: 5,
+              speed: 1,
               opacity_min: 0.1,
               sync: false,
             },
           },
           size: {
             value: 4,
-            random: true,
+            random: false,
             anim: {
               enable: false,
-              speed: 50,
+              speed: 40,
               size_min: 0.1,
               sync: false,
             },
@@ -62,7 +62,7 @@ const ProfileParticle = () => {
             },
           },
           line_linked: {
-            enable: false,
+            enable: true,
             distance: 600,
             color: "#ffffff",
             opacity: 0.4,
@@ -71,9 +71,9 @@ const ProfileParticle = () => {
           move: {
             enable: true,
             speed: 2,
-            direction: "right",
+            direction: "none",
             random: false,
-            straight: true,
+            straight: false,
             out_mode: "out",
             attract: {
               enable: false,
@@ -98,7 +98,7 @@ const ProfileParticle = () => {
             grab: {
               distance: 400,
               line_linked: {
-                opacity: 0,
+                opacity: 1,
               },
             },
             bubble: {
@@ -132,4 +132,4 @@ const ProfileParticle = () => {
   )
 }
 
-export default ProfileParticle
+export default ForgotPassParticle

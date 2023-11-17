@@ -7,38 +7,44 @@ import "./OTPPage.css"
 
 const OTPToggleFormMobile = () => {
   const [genOTP, toggle] = useState(true)
-  const [OTPsubmitFailed, setLoginFailed] = useState(false)
-  const [OTPgenFailed, setSignupFailed] = useState(false)
+  const [OTPsubmitFailed, setOTPsubmitFailed] = useState(false)
+  const [OTPgenFailed, setOTPgenFailed] = useState(false)
   const [userDetails, setUserDetails] = useState({})
-  const handleLogin = (event) => {
+  const [email, setEmail] = useState("")
+  const handleOTPsubmit = (event) => {
     event.preventDefault()
-    let data = { email: userDetails.email, password: userDetails.password }
-    Axios.post("http://localhost:8000/user-create/login", data)
+    let data = {
+      email: userDetails.email,
+      OTP: userDetails.OTP,
+      newPassword: userDetails.password,
+    }
+    Axios.put("http://localhost:8000/pass-edit/reset-pass", data)
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
-          setLoginFailed(true)
+          setOTPsubmitFailed(true)
         } else {
-          window.location.href = "/profile"
+          setOTPsubmitFailed(false)
+          window.location.href = "/login"
         }
       })
       .catch((err) => console.log(err))
     event.target.reset()
   }
-  const handleSignup = (event) => {
+  const handleOTPgen = (event) => {
     event.preventDefault()
     let data = {
-      name: userDetails.name,
       email: userDetails.email,
-      password: userDetails.password,
     }
-    Axios.post("http://localhost:8000/user-create/signup", data)
+    Axios.post("http://localhost:8000/pass-edit/send-fp-otp", data)
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
-          setSignupFailed(true)
+          setOTPgenFailed(true)
         } else {
-          window.location.href = "/profile"
+          setOTPgenFailed(false)
+          toggle(false)
+          setEmail(data.email)
         }
       })
       .catch((err) => console.log(err))
@@ -48,7 +54,7 @@ const OTPToggleFormMobile = () => {
     <div className="d-flex justify-content-center">
       <Components.ContainerMobile>
         <Components.OTPgenContainerMobile genOTP={genOTP}>
-          <Components.Form onSubmit={handleSignup}>
+          <Components.Form onSubmit={handleOTPgen}>
             <OTPgenFormMobile
               setState={setUserDetails}
               failed={OTPgenFailed}
@@ -57,8 +63,9 @@ const OTPToggleFormMobile = () => {
           </Components.Form>
         </Components.OTPgenContainerMobile>
         <Components.OTPsubmitContainerMobile genOTP={genOTP}>
-          <Components.Form onSubmit={handleLogin}>
+          <Components.Form onSubmit={handleOTPsubmit}>
             <OTPsubmitFormMobile
+              email={email}
               setState={setUserDetails}
               failed={OTPsubmitFailed}
               toggle={toggle}

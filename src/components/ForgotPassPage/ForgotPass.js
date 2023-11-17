@@ -1,16 +1,16 @@
 import ForgotPassParticle from "./subcomponents/ForgotPassParticle"
-import OTPToggleForm from "./subcomponents/SigninToggleForm"
-import OTPToggleFormMobile from "./subcomponents/SigninToggleFormMobile"
+import OTPToggleForm from "./subcomponents/OTPToggleForm"
+import OTPToggleFormMobile from "./subcomponents/OTPToggleFormMobile"
 import "./subcomponents/OTPPage.css"
 
-const ForgotPass = (props) => {
+const ForgotPass = () => {
   return (
     <>
       <ForgotPassParticle />
       {window.innerWidth >= 800 ? (
-        <OTPToggleForm signup={props.signup} />
+        <OTPToggleForm />
       ) : (
-        <OTPToggleFormMobile signup={props.signup} />
+        <OTPToggleFormMobile />
       )}
     </>
   )

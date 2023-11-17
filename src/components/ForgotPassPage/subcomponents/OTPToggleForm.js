@@ -6,38 +6,44 @@ import OTPsubmitForm from "./OTPsubmitForm"
 
 const OTPToggleForm = () => {
   const [genOTP, toggle] = useState(true)
-  const [OTPsubmitFailed, setLoginFailed] = useState(false)
-  const [OTPgenFailed, setSignupFailed] = useState(false)
+  const [OTPsubmitFailed, setOTPsubmitFailed] = useState(false)
+  const [OTPgenFailed, setOTPgenFailed] = useState(false)
   const [userDetails, setUserDetails] = useState({})
-  const handleLogin = (event) => {
+  const [email, setEmail] = useState("")
+  const handleOTPsubmit = (event) => {
     event.preventDefault()
-    let data = { email: userDetails.email, password: userDetails.password }
-    Axios.post("http://localhost:8000/user-create/login", data)
+    let data = {
+      email: userDetails.email,
+      OTP: userDetails.OTP,
+      newPassword: userDetails.password,
+    }
+    Axios.put("http://localhost:8000/pass-edit/reset-pass", data)
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
-          setLoginFailed(true)
+          setOTPsubmitFailed(true)
         } else {
-          window.location.href = "/profile"
+          setOTPsubmitFailed(false)
+          window.location.href = "/login"
         }
       })
       .catch((err) => console.log(err))
     event.target.reset()
   }
-  const handleSignup = (event) => {
+  const handleOTPgen = (event) => {
     event.preventDefault()
     let data = {
-      name: userDetails.name,
       email: userDetails.email,
-      password: userDetails.password,
     }
-    Axios.post("http://localhost:8000/user-create/signup", data)
+    Axios.post("http://localhost:8000/pass-edit/send-fp-otp", data)
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
-          setSignupFailed(true)
+          setOTPgenFailed(true)
         } else {
-          window.location.href = "/profile"
+          setOTPgenFailed(false)
+          toggle(false)
+          setEmail(data.email)
         }
       })
       .catch((err) => console.log(err))
@@ -48,29 +54,38 @@ const OTPToggleForm = () => {
       <Components.Container>
         <Components.FormContainer>
           <Components.OTPgenContainer genOTP={genOTP}>
-            <Components.Form onSubmit={handleSignup}>
-              <OTPgenFrom setState={setUserDetails} failed={OTPgenFailed} />
+            <Components.Form onSubmit={handleOTPgen}>
+              <OTPgenFrom
+                setState={setUserDetails}
+                failed={OTPgenFailed}
+                toggle={toggle}
+              />
             </Components.Form>
           </Components.OTPgenContainer>
           <Components.OTPsubmitContainer genOTP={genOTP}>
-            <Components.Form onSubmit={handleLogin}>
-              <OTPsubmitForm setState={setUserDetails} failed={OTPsubmitFailed} />
+            <Components.Form onSubmit={handleOTPsubmit}>
+              <OTPsubmitForm
+                email={email}
+                setState={setUserDetails}
+                failed={OTPsubmitFailed}
+                toggle={toggle}
+              />
             </Components.Form>
           </Components.OTPsubmitContainer>
         </Components.FormContainer>
         <Components.OverlayContainer>
           <Components.LeftOverlayPanel genOTP={genOTP}>
-            <Components.Title>Welcome Back!</Components.Title>
-            <Components.Paragraph>Proceed with your tasks</Components.Paragraph>
+            <Components.Title>Forgot Password!</Components.Title>
+            <Components.Paragraph>You can reset it</Components.Paragraph>
             <Components.GhostButton onClick={() => toggle(false)}>
-              Login
+              Enter OTP
             </Components.GhostButton>
           </Components.LeftOverlayPanel>
           <Components.RightOverlayPanel genOTP={genOTP}>
-            <Components.Title>Welcome User!</Components.Title>
-            <Components.Paragraph>Tackle your tasks</Components.Paragraph>
+            <Components.Title>Didn't Receive OTP!</Components.Title>
+            <Components.Paragraph>Resend OTP</Components.Paragraph>
             <Components.GhostButton onClick={() => toggle(true)}>
-              Sign Up
+              Resend OTP
             </Components.GhostButton>
           </Components.RightOverlayPanel>
         </Components.OverlayContainer>

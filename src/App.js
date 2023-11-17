@@ -9,7 +9,8 @@ import ForgotPass from "./components/ForgotPassPage/ForgotPass"
 
 function App() {
   return (
-    <div className="container">
+    <div >
+       {/*className="container" adding this will change profile page bg width */}
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />

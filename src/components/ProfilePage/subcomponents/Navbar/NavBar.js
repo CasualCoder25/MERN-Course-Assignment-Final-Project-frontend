@@ -3,10 +3,10 @@ import { Link } from "react-router-dom"
 import Axios from "axios"
 import "./NavBar.css"
 
-const NavBar = () => {
+const NavBar = (props) => {
   const [collapse, setCollapse] = useState(true)
   const handleMore = () => {
-    // HandleMore
+    props.setPopup(true)
   }
   const handleLogout = () => {
     Axios.get("http://localhost:8000/user-create/logout", {
@@ -66,7 +66,7 @@ const NavBar = () => {
                 className="nav-link p-3"
                 style={{ textAlign: "left" }}
               >
-                More
+                Settings
               </button>
               <button
                 onClick={handleLogout}

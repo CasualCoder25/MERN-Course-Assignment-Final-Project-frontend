@@ -1,4 +1,4 @@
-# 0.5.0 - ToDo List frontend:
+# 0.5.1 - ToDo List frontend:
 
 - Profile Page Changes
 - Bug Fixes

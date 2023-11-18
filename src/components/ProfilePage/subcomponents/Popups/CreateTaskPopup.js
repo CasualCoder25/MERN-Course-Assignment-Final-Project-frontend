@@ -115,7 +115,7 @@ const CreateTaskPopup = (props) => {
           <Components.Input
             value={task_desc}
             onChange={(event) => setTaskDesc(event.target.value)}
-            placeholder="Enter Task Descpription"
+            placeholder="Enter Task Description"
           />
           <Components.Title>Need a reminder?</Components.Title>
           <Components.Input

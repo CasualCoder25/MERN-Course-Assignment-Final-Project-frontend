@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Modal, ModalBody, ModalFooter } from 'reactstrap';
-
+import * as Components from "../Components"
 const EditTaskPopup = (props) => {
     const data = props.data
     const [task_name, setTaskName] = useState(data.task_name)

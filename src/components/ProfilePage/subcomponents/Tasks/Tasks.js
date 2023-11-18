@@ -3,8 +3,7 @@ import * as ProfileComponents from "./TasksComponents"
 const Tasks = () => {
   return (
     <>
-      <ProfileComponents.TaskContainer>
-      </ProfileComponents.TaskContainer>
+      <ProfileComponents.TaskContainer></ProfileComponents.TaskContainer>
     </>
   )
 }

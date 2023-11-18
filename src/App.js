@@ -6,10 +6,11 @@ import FeedbackPage from "./components/FeedBackPage/FeedBackPage"
 import SignInPage from "./components/UserAccessPage/SigninPage"
 import ProfilePage from "./components/ProfilePage/ProfilePage"
 import ForgotPass from "./components/ForgotPassPage/ForgotPass"
+import EditAccountPage from "./components/EditAccountPage/EditAccountPage"
 
 function App() {
   return (
-    <div className="container">
+    <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -18,11 +19,11 @@ function App() {
           <Route path="/signup" element={<SignInPage signup={true} />} />
           <Route path="/forgot-password" element={<ForgotPass />} />
           <Route path="/profile" element={<ProfilePage />} />
-          <Route path="/edit-account" element={<h1>EditAccount</h1>} />
+          <Route path="/edit-account" element={<EditAccountPage />} />
           <Route path="/delete-account" element={<h1>DeleteAccount</h1>} />
         </Routes>
       </BrowserRouter>
-    </div>
+    </>
   )
 }
 

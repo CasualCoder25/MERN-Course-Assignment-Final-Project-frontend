@@ -5,12 +5,12 @@ import AboutUs from "./subcomponents/AboutUs"
 
 const HomePage = () => {
   return (
-    <>
+    <div className="container">
       <HomePageParticle />
       <NavBar />
       <EmptyComponent />
       <AboutUs />
-    </>
+    </div>
   )
 }
 

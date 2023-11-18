@@ -12,7 +12,9 @@ const SigninToggleForm = (props) => {
   const handleLogin = (event) => {
     event.preventDefault()
     let data = { email: userDetails.email, password: userDetails.password }
-    Axios.post("http://localhost:8000/user-create/login", data)
+    Axios.post("http://localhost:8000/user-create/login", data, {
+      withCredentials: true,
+    })
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
@@ -31,7 +33,9 @@ const SigninToggleForm = (props) => {
       email: userDetails.email,
       password: userDetails.password,
     }
-    Axios.post("http://localhost:8000/user-create/signup", data)
+    Axios.post("http://localhost:8000/user-create/signup", data, {
+      withCredentials: true,
+    })
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)

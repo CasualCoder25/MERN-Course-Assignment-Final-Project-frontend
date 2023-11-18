@@ -17,7 +17,6 @@ const FeedBackForm = () => {
     }
     Axios.post("http://localhost:8000/feedback", data)
       .then((res) => {
-        console.log(res)
         if (res.data.status === 500) {
           setError(true)
           setDisplayMessage(true)

@@ -6,17 +6,20 @@ import NavBar from "./subcomponents/Navbar/NavBar"
 
 const ProfilePage = () => {
   return (
-    <>
-      <NavBar />
+    <div className="bg-color">
       <ProfileParticle />
-      <ProfileComponents.ProfileContainer
-        width={window.innerWidth}
-        height={window.innerHeight}
-      >
-        <RocketMoon />
-        <Tasks />
-      </ProfileComponents.ProfileContainer>
-    </>
+      <ProfileComponents.Div className="d-flex flex-column justify-content-center align-items-center">
+        <NavBar />
+        <ProfileComponents.ProfileContainer
+          width={window.innerWidth}
+          height={window.innerHeight}
+          className="container"
+        >
+          <RocketMoon />
+          <Tasks />
+        </ProfileComponents.ProfileContainer>
+      </ProfileComponents.Div>
+    </div>
   )
 }
 

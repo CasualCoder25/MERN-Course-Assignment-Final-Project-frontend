@@ -5,14 +5,14 @@ import "./subcomponents/OTPPage.css"
 
 const ForgotPass = () => {
   return (
-    <>
+    <div className="container">
       <ForgotPassParticle />
       {window.innerWidth >= 800 ? (
         <OTPToggleForm />
       ) : (
         <OTPToggleFormMobile />
       )}
-    </>
+    </div>
   )
 }
 

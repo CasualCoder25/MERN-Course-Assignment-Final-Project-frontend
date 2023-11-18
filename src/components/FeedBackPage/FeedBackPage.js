@@ -5,12 +5,12 @@ import FeedBackForm from "./subcomponents/FeedBackForm"
 
 const FeedbackPage = () => {
   return (
-    <>
+    <div className="container">
       <FeedbackPageParticle />
       <NavBar />
       <EmptyComponent />
       <FeedBackForm />
-    </>
+    </div>
   )
 }
 

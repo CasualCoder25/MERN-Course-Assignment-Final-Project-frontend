@@ -9,7 +9,9 @@ const NavBar = () => {
     // HandleMore
   }
   const handleLogout = () => {
-    Axios.get("http://localhost:8000/user-create/logout").then((res) => {
+    Axios.get("http://localhost:8000/user-create/logout", {
+      withCredentials: true,
+    }).then((res) => {
       if (res.data.status === 500) {
         console.log(res.data.error)
       } else {
@@ -18,7 +20,7 @@ const NavBar = () => {
     })
   }
   return (
-    <>
+    <div className="container">
       <nav className="navbar navbar-expand-lg navbar-light bg-light translucent">
         <div className="container-fluid">
           <Link
@@ -77,7 +79,7 @@ const NavBar = () => {
           </div>
         </div>
       </nav>
-    </>
+    </div>
   )
 }
 export default NavBar

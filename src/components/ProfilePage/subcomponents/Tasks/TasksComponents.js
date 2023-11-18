@@ -3,6 +3,17 @@ import { CiEdit } from "react-icons/ci";
 import { AiOutlineDelete } from 'react-icons/ai';
 import { BsCheckLg } from 'react-icons/bs';
 import { AiOutlineStar } from "react-icons/ai";
+import { RxCross2 } from "react-icons/rx";
+
+export const CrossIcon =styled(RxCross2)`
+font-size: 35px;
+margin-left: 10px;
+color: red;
+
+&:hover {
+  color: rgb(139, 0, 0);
+}
+`
 export const TaskContainer = styled.div`
   width: 100%;
   height: 100%;

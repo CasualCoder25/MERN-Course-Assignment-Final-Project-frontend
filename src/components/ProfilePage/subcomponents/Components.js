@@ -36,6 +36,7 @@ export const Form = styled.form`
   text-align: center;
 `
 export const Title = styled.h1`
+  text-align: center;
   font-weight: bold;
 `
 export const Input = styled.input`
@@ -80,6 +81,7 @@ export const Anchor = styled(Link)`
   margin: 15px 0;
 `
 export const Paragraph = styled.p`
+  text-align: center;
   font-size: 14px;
   font-weight: 100;
   line-height: 20px;

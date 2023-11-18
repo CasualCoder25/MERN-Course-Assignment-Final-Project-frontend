@@ -2,11 +2,14 @@ import { useEffect, useState } from "react"
 import * as ProfileComponents from "./TasksComponents"
 import Axios from "axios"
 import TaskTable from "./TaskTable"
+import CreateTaskPopup from "../Popups/CreateTaskPopup"
 
 const Tasks = () => {
+  const [createUserPopup, setCreateUserPopup] = useState(false)
   const [completedView, setCompletedView] = useState(false)
   const [refreshVar, setRefersh] = useState(false)
   const [data, setData] = useState([])
+  const [searchString, setSearchString] = useState("")
   const refresh = () => {
     setRefersh(!refreshVar)
   }
@@ -47,8 +50,10 @@ const Tasks = () => {
           <ProfileComponents.Input
             type="text"
             placeholder="Search Task"
+            value={searchString}
             height={window.innerHeight}
             width={window.innerWidth}
+            onChange={(event) => setSearchString(event.target.value)}
           />
           <ProfileComponents.GhostButton
             height={window.innerHeight}
@@ -59,6 +64,7 @@ const Tasks = () => {
           <ProfileComponents.PrimaryButton
             height={window.innerHeight}
             width={window.innerWidth}
+            onClick={() => setCreateUserPopup(true)}
           >
             Add Task+
           </ProfileComponents.PrimaryButton>
@@ -81,8 +87,13 @@ const Tasks = () => {
           </ProfileComponents.ActiveButton>
         </ProfileComponents.TaskToggleContainer>
         <ProfileComponents.TaskBodyContainer>
-          <TaskTable data={data} />
+          <TaskTable data={data} searchString={searchString} />
         </ProfileComponents.TaskBodyContainer>
+        <CreateTaskPopup
+          refresh={refresh}
+          popup={createUserPopup}
+          setPopup={setCreateUserPopup}
+        />
       </ProfileComponents.TaskContainer>
     </>
   )

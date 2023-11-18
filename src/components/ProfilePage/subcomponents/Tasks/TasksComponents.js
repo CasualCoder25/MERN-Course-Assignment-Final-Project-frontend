@@ -1,4 +1,9 @@
 import styled from "styled-components"
+import { CiEdit } from "react-icons/ci"
+import { AiOutlineDelete } from "react-icons/ai"
+import { BsCheckLg } from "react-icons/bs"
+import { AiOutlineStar } from "react-icons/ai"
+import { RxCross2 } from "react-icons/rx"
 
 export const TaskContainer = styled.div`
   width: 100%;
@@ -26,7 +31,6 @@ export const TaskBodyContainer = styled.div`
   justify-content: center;
   border-radius: 0 0 10px 10px;
   opacity: 0.7;
-  padding: 4%;
 `
 export const TaskToggleContainer = styled.div`
   display: flex;
@@ -97,4 +101,74 @@ export const ActiveButton = styled(PrimaryButton)`
   margin: 0;
   border-radius: 0;`
       : null}
+`
+export const TodoListItem = styled.div`
+  position: relative;
+  background-color: rgb(28, 28, 66);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 25px;
+  width: 100%;
+
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(to right, cyan, rgb(17, 17, 40));
+  }
+
+  &::before {
+    top: 0;
+    left: 0;
+  }
+
+  &::after {
+    bottom: 0;
+    right: 0;
+  }
+`
+export const TodoListItemTitle = styled.h3`
+  font-size: medium;
+  color: #fff;
+  width: 100%;
+  font-weight: bold;
+  padding: 1%;
+`
+export const DeleteIcon = styled(AiOutlineDelete)`
+  font-size: 150%;
+  cursor: pointer;
+  margin: 0 5px;
+
+  &:hover {
+    color: red;
+  }
+`
+export const EditIcon = styled(CiEdit)`
+  font-size: 150%;
+  cursor: pointer;
+  margin: 0 5px;
+
+  &:hover {
+    color: blue;
+  }
+`
+export const CheckIcon = styled(BsCheckLg)`
+  font-size: 150%;
+  color: rgb(0, 230, 122);
+  margin: 0 5px;
+`
+export const Star = styled(AiOutlineStar)`
+  font-size: 150%;
+  cursor: pointer;
+  margin: 0 5px;
+  ${(props) => (props.star ? `color: goldenrod;` : null)}
+`
+export const CrossIcon = styled(RxCross2)`
+  font-size: 150%;
+  color: red;
+  margin: 0 5px;
 `

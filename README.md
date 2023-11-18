@@ -1,4 +1,3 @@
-# 0.5.1 - ToDo List frontend:
+# 1.0.0 - ToDo List frontend:
 
-- Profile Page Changes
-- Bug Fixes
+- First Public Release

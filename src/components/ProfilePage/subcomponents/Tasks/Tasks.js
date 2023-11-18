@@ -22,6 +22,7 @@ const Tasks = () => {
           if (res.data.status === 500) {
             console.log(res.data.error)
           } else {
+            res.data.sort((a, b) => (!a.star && b.star ? 1 : -1))
             setData(res.data)
           }
         })
@@ -34,6 +35,7 @@ const Tasks = () => {
           if (res.data.status === 500) {
             console.log(res.data.error)
           } else {
+            res.data.sort((a, b) => (!a.star && b.star ? 1 : -1))
             setData(res.data)
           }
         })
@@ -87,7 +89,12 @@ const Tasks = () => {
           </ProfileComponents.ActiveButton>
         </ProfileComponents.TaskToggleContainer>
         <ProfileComponents.TaskBodyContainer>
-          <TaskTable data={data} searchString={searchString} />
+          <TaskTable
+            completedView={completedView}
+            data={data}
+            searchString={searchString}
+            refresh={refresh}
+          />
         </ProfileComponents.TaskBodyContainer>
         <CreateTaskPopup
           refresh={refresh}

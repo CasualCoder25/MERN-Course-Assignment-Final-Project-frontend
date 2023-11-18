@@ -9,7 +9,7 @@ const CreateTaskPopup = (props) => {
   const [star, setStar] = useState(false)
   const [priority_number, setPriorityNumber] = useState(0)
   const [reminder_active, setReminderActive] = useState(false)
-  const [reminder_time, setReminderTime] = useState()
+  const [reminder_time, setReminderTime] = useState("")
   const [completed, setCompleted] = useState(false)
   const [dateTimeInput, setDateTimeInput] = useState(new Date())
   const [starButtonText, setStarButtonText] = useState("Set as important")

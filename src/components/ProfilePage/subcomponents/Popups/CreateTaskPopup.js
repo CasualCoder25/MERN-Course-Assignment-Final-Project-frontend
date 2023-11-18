@@ -9,8 +9,9 @@ const CreateTaskPopup = (props) => {
   const [star, setStar] = useState(false)
   const [priority_number, setPriorityNumber] = useState(0)
   const [reminder_active, setReminderActive] = useState(false)
-  const [reminder_time, setReminderTime] = useState("")
+  const [reminder_time, setReminderTime] = useState()
   const [completed, setCompleted] = useState(false)
+  const [dateTimeInput, setDateTimeInput] = useState(new Date())
   const [starButtonText, setStarButtonText] = useState("Set as important")
   const [starText, setStarText] = useState("Not marked as important")
   const [displayText, setDisplayText] = useState("Reminder is not set")
@@ -117,8 +118,16 @@ const CreateTaskPopup = (props) => {
             placeholder="Enter Task Descpription"
           />
           <Components.Title>Need a reminder?</Components.Title>
-          <Components.Input type="datetime-local" />
-          <Components.Button onClick={sendDateTime}>
+          <Components.Input
+            type="datetime-local"
+            onChange={(event) => setDateTimeInput(event.target.value)}
+          />
+          <Components.Button
+            onClick={() => {
+              setReminderActive(true)
+              sendDateTime(dateTimeInput)
+            }}
+          >
             Set Reminder
           </Components.Button>
           <Components.Paragraph>{displayText}</Components.Paragraph>

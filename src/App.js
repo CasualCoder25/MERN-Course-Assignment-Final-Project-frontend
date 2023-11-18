@@ -7,6 +7,7 @@ import SignInPage from "./components/UserAccessPage/SigninPage"
 import ProfilePage from "./components/ProfilePage/ProfilePage"
 import ForgotPass from "./components/ForgotPassPage/ForgotPass"
 import EditAccountPage from "./components/EditAccountPage/EditAccountPage"
+import DeleteAccountPage from "./components/DeleteAccountPage/DeleteAccountPage"
 
 function App() {
   return (
@@ -20,7 +21,7 @@ function App() {
           <Route path="/forgot-password" element={<ForgotPass />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/edit-account" element={<EditAccountPage />} />
-          <Route path="/delete-account" element={<h1>DeleteAccount</h1>} />
+          <Route path="/delete-account" element={<DeleteAccountPage />} />
         </Routes>
       </BrowserRouter>
     </>

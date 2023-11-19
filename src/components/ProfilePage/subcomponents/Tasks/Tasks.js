@@ -85,13 +85,19 @@ const Tasks = () => {
         >
           <ProfileComponents.ActiveButton
             InActive={completedView}
-            onClick={() => setCompletedView(false)}
+            onClick={() => {
+              setSearchString("")
+              setCompletedView(false)
+            }}
           >
             Pending
           </ProfileComponents.ActiveButton>
           <ProfileComponents.ActiveButton
             InActive={!completedView}
-            onClick={() => setCompletedView(true)}
+            onClick={() => {
+              setSearchString("")
+              setCompletedView(true)
+            }}
           >
             Completed
           </ProfileComponents.ActiveButton>

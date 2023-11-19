@@ -17,7 +17,7 @@ const TaskPendingItem = (props) => {
   } = props.data
   const handleTaskDelete = () => {
     Axios.post(
-      "http://localhost:8000/task/delete-task",
+      "https://mern-final-project-backend.onrender.com/task/delete-task",
       { task_id: _id },
       {
         withCredentials: true,
@@ -48,7 +48,7 @@ const TaskPendingItem = (props) => {
       reminder_time: reminder_time,
       completed: true,
     }
-    Axios.put("http://localhost:8000/task/edit-task", data, {
+    Axios.put("https://mern-final-project-backend.onrender.com/task/edit-task", data, {
       withCredentials: true,
     })
       .then((res) => {
@@ -76,7 +76,7 @@ const TaskPendingItem = (props) => {
       reminder_time: reminder_time,
       completed: completed,
     }
-    Axios.put("http://localhost:8000/task/edit-task", data, {
+    Axios.put("https://mern-final-project-backend.onrender.com/task/edit-task", data, {
       withCredentials: true,
     })
       .then((res) => {

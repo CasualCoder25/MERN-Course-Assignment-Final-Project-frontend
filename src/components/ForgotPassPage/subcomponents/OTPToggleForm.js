@@ -17,7 +17,7 @@ const OTPToggleForm = () => {
       OTP: userDetails.OTP,
       newPassword: userDetails.password,
     }
-    Axios.put("http://localhost:8000/pass-edit/reset-pass", data)
+    Axios.put("https://mern-final-project-backend.onrender.com/pass-edit/reset-pass", data)
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
@@ -38,7 +38,7 @@ const OTPToggleForm = () => {
     let data = {
       email: userDetails.email,
     }
-    Axios.post("http://localhost:8000/pass-edit/send-fp-otp", data)
+    Axios.post("https://mern-final-project-backend.onrender.com/pass-edit/send-fp-otp", data)
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)

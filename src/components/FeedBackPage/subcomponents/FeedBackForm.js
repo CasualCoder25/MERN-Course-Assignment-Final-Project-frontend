@@ -17,7 +17,7 @@ const FeedBackForm = () => {
       email: emailVal,
       description: feedbackVal,
     }
-    Axios.post("http://localhost:8000/feedback", data)
+    Axios.post("https://mern-final-project-backend.onrender.com/feedback", data)
       .then((res) => {
         if (res.data.status === 500) {
           setError(true)

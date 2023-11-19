@@ -9,7 +9,7 @@ const NavBar = (props) => {
     props.setPopup(true)
   }
   const handleBrand = () => {
-    Axios.get("http://localhost:8000/user-create/logout", {
+    Axios.get("https://mern-final-project-backend.onrender.com/user-create/logout", {
       withCredentials: true,
     }).then((res) => {
       if (res.data.status === 500) {
@@ -20,7 +20,7 @@ const NavBar = (props) => {
     })
   }
   const handleHome = () => {
-    Axios.get("http://localhost:8000/user-create/logout", {
+    Axios.get("https://mern-final-project-backend.onrender.com/user-create/logout", {
       withCredentials: true,
     }).then((res) => {
       if (res.data.status === 500) {
@@ -31,7 +31,7 @@ const NavBar = (props) => {
     })
   }
   const handleLogout = () => {
-    Axios.get("http://localhost:8000/user-create/logout", {
+    Axios.get("https://mern-final-project-backend.onrender.com/user-create/logout", {
       withCredentials: true,
     }).then((res) => {
       if (res.data.status === 500) {

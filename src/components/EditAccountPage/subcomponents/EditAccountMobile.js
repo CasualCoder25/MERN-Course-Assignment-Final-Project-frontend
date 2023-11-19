@@ -14,7 +14,7 @@ const EditAccountMobile = () => {
       newName: userDetails.newName,
       newPassword: userDetails.newPassword,
     }
-    Axios.put("http://localhost:8000/user-edit/edit-user", data, {
+    Axios.put("https://mern-final-project-backend.onrender.com/user-edit/edit-user", data, {
       withCredentials: true,
     })
       .then((res) => {

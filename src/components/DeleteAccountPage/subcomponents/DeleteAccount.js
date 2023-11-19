@@ -12,7 +12,7 @@ const DeleteAccount = () => {
     let data = {
       password: userDetails.password,
     }
-    Axios.post("http://localhost:8000/user-edit/delete-user", data, {
+    Axios.post("https://mern-final-project-backend.onrender.com/user-edit/delete-user", data, {
       withCredentials: true,
     })
       .then((res) => {

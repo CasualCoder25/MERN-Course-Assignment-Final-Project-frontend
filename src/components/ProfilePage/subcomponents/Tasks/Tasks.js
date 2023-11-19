@@ -15,7 +15,7 @@ const Tasks = () => {
   }
   useEffect(() => {
     if (completedView) {
-      Axios.get("http://localhost:8000/task/completed-tasks", {
+      Axios.get("https://mern-final-project-backend.onrender.com/task/completed-tasks", {
         withCredentials: true,
       })
         .then((res) => {
@@ -32,7 +32,7 @@ const Tasks = () => {
           alert("error")
         })
     } else {
-      Axios.get("http://localhost:8000/task/pending-tasks", {
+      Axios.get("https://mern-final-project-backend.onrender.com/task/pending-tasks", {
         withCredentials: true,
       })
         .then((res) => {

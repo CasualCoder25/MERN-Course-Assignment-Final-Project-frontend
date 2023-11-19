@@ -101,7 +101,7 @@ const EditTaskPopup = (props) => {
       reminder_time: reminder_time,
       completed: completed,
     }
-    Axios.put("http://localhost:8000/task/edit-task", task, {
+    Axios.put("https://mern-final-project-backend.onrender.com/task/edit-task", task, {
       withCredentials: true,
     })
       .then((res) => {

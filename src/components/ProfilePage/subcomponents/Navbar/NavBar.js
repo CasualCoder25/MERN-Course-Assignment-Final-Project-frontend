@@ -8,6 +8,28 @@ const NavBar = (props) => {
   const handleMore = () => {
     props.setPopup(true)
   }
+  const handleBrand = () => {
+    Axios.get("http://localhost:8000/user-create/logout", {
+      withCredentials: true,
+    }).then((res) => {
+      if (res.data.status === 500) {
+        console.log(res.data.error)
+      } else {
+        window.location.href = "/"
+      }
+    })
+  }
+  const handleHome = () => {
+    Axios.get("http://localhost:8000/user-create/logout", {
+      withCredentials: true,
+    }).then((res) => {
+      if (res.data.status === 500) {
+        console.log(res.data.error)
+      } else {
+        window.location.href = "/"
+      }
+    })
+  }
   const handleLogout = () => {
     Axios.get("http://localhost:8000/user-create/logout", {
       withCredentials: true,
@@ -24,10 +46,10 @@ const NavBar = (props) => {
       <nav className="navbar navbar-expand-lg navbar-light bg-light translucent">
         <div className="container-fluid">
           <Link
+            onClick={handleBrand}
             className="navbar-brand text-white bg-darkblue rounded fw-bold p-3"
-            to="/"
           >
-            ToDo - List
+            TaskForge
           </Link>
           <button
             className="navbar-toggler"
@@ -54,13 +76,14 @@ const NavBar = (props) => {
             id="navbarNavAltMarkup"
           >
             <div className="navbar-nav">
-              <Link
+              <button
+                onClick={handleHome}
                 className="nav-link light-blue active p-3"
                 aria-current="page"
-                to="/"
+                style={{ textAlign: "left" }}
               >
                 Home
-              </Link>
+              </button>
               <button
                 onClick={handleMore}
                 className="nav-link p-3"

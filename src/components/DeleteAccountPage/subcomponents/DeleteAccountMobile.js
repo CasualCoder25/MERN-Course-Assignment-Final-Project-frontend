@@ -16,15 +16,18 @@ const DeleteAccountMobile = () => {
       withCredentials: true,
     })
       .then((res) => {
-        console.log(res)
         if (res.data.status === 500) {
           console.log(res.data.error)
           setDeleteFailed(true)
         } else {
+          setDeleteFailed(false)
           window.location.href = "/"
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setDeleteFailed(true)
+        console.log(err)
+      })
     event.target.reset()
   }
   return (

@@ -18,15 +18,18 @@ const EditAccount = () => {
       withCredentials: true,
     })
       .then((res) => {
-        console.log(res)
         if (res.data.status === 500) {
           console.log(res.data.error)
           setEditFailed(true)
         } else {
+          setEditFailed(false)
           window.location.href = "/profile"
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setEditFailed(true)
+        console.log(err)
+      })
     event.target.reset()
   }
   return (

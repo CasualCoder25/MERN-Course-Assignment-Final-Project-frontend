@@ -12,7 +12,7 @@ const NavBar = () => {
             className="navbar-brand text-white bg-darkblue rounded fw-bold p-3"
             to="/"
           >
-            ToDo - List
+            TaskForge
           </Link>
           <button
             className="navbar-toggler"

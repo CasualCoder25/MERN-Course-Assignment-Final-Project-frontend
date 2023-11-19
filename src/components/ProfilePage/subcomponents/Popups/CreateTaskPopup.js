@@ -58,11 +58,15 @@ const CreateTaskPopup = (props) => {
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
+          alert("error")
         } else {
           props.refresh()
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.log(err)
+        alert("error")
+      })
     props.setPopup(false)
     reset()
   }

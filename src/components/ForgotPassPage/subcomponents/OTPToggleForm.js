@@ -27,7 +27,10 @@ const OTPToggleForm = () => {
           window.location.href = "/login"
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setOTPsubmitFailed(true)
+        console.log(err)
+      })
     event.target.reset()
   }
   const handleOTPgen = (event) => {
@@ -46,7 +49,10 @@ const OTPToggleForm = () => {
           setEmail(data.email)
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setOTPgenFailed(true)
+        console.log(err)
+      })
     event.target.reset()
   }
   return (

@@ -1,4 +1,3 @@
-import { Link } from "react-router-dom"
 import "./NavBar.css"
 import "./Styles.css"
 import { useState } from "react"
@@ -9,6 +8,9 @@ const FeedBackForm = () => {
   const [error, setError] = useState(false)
   const [emailVal, setEmail] = useState("")
   const [feedbackVal, setFeedback] = useState("")
+  const handleContact = () => {
+    window.location.href = "/feedback"
+  }
   const handleclick = (event) => {
     event.preventDefault()
     let data = {
@@ -67,16 +69,20 @@ const FeedBackForm = () => {
       <div className="bg-darkblue p-3">
         <footer>
           <div>
-            <Link to="/feedback" className="link-style p-3">
+            <button
+              onClick={handleContact}
+              className="text-primary link-style px-3"
+              style={{ backgroundColor: "transparent", border: "none" }}
+            >
               Contact-us
-            </Link>
+            </button>
           </div>
           <div>
             <a
               href="https://github.com/CasualCoder25/MERN-Course-Assignment-Final-Project-backend"
               target="_blank"
               rel="noopener noreferrer"
-              className="link-style p-3"
+              className="link-style px-3"
             >
               Our Source Code
             </a>

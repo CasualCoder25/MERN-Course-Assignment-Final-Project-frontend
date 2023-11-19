@@ -21,12 +21,16 @@ const Tasks = () => {
         .then((res) => {
           if (res.data.status === 500) {
             console.log(res.data.error)
+            alert("error")
           } else {
             res.data.sort((a, b) => (!a.star && b.star ? 1 : -1))
             setData(res.data)
           }
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          console.log(err)
+          alert("error")
+        })
     } else {
       Axios.get("http://localhost:8000/task/pending-tasks", {
         withCredentials: true,
@@ -34,12 +38,16 @@ const Tasks = () => {
         .then((res) => {
           if (res.data.status === 500) {
             console.log(res.data.error)
+            alert("error")
           } else {
             res.data.sort((a, b) => (!a.star && b.star ? 1 : -1))
             setData(res.data)
           }
         })
-        .catch((err) => console.log(err))
+        .catch((err) => {
+          console.log(err)
+          alert("error")
+        })
     }
   }, [completedView, refreshVar])
   return (

@@ -20,10 +20,14 @@ const SigninToggleForm = (props) => {
           console.log(res.data.error)
           setLoginFailed(true)
         } else {
+          setLoginFailed(false)
           window.location.href = "/profile"
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setLoginFailed(true)
+        console.log(err)
+      })
     event.target.reset()
   }
   const handleSignup = (event) => {
@@ -41,10 +45,14 @@ const SigninToggleForm = (props) => {
           console.log(res.data.error)
           setSignupFailed(true)
         } else {
+          setSignupFailed(false)
           window.location.href = "/profile"
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        setSignupFailed(true)
+        console.log(err)
+      })
     event.target.reset()
   }
   return (

@@ -26,11 +26,15 @@ const TaskCompletedItem = (props) => {
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
+          alert("error")
         } else {
           props.refresh()
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.log(err)
+        alert("error")
+      })
   }
 
   const handleTaskComplete = () => {
@@ -50,11 +54,15 @@ const TaskCompletedItem = (props) => {
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
+          alert("error")
         } else {
           props.refresh()
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.log(err)
+        alert("error")
+      })
   }
 
   const handleStarClick = () => {
@@ -74,11 +82,15 @@ const TaskCompletedItem = (props) => {
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
+          alert("error")
         } else {
           props.refresh()
         }
       })
-      .catch((err) => alert(err))
+      .catch((err) => {
+        console.log(err)
+        alert("error")
+      })
   }
   return (
     <Components.TodoListItem>

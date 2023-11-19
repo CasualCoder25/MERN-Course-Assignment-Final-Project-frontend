@@ -16,15 +16,18 @@ const DeleteAccount = () => {
       withCredentials: true,
     })
       .then((res) => {
-        console.log(res)
         if (res.data.status === 500) {
           console.log(res.data.error)
           setDeleteFailed(true)
         } else {
+          setDeleteFailed(false)
           window.location.href = "/"
         }
       })
-      .catch((err) => console.log(err))
+      .catch((err) => {
+        console.log(err)
+        setDeleteFailed(true)
+      })
     event.target.reset()
   }
   return (

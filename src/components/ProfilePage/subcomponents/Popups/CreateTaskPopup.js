@@ -23,7 +23,7 @@ const CreateTaskPopup = (props) => {
     setPriorityNumber(0)
     setReminderActive(false)
     setReminderTime("")
-    setCompleted("")
+    setCompleted(false)
     setReminderText("Set reminder")
     setDisplayText("Reminder is not set")
     setStarButtonText("Set as important")

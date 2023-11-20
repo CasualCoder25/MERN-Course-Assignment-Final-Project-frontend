@@ -10,7 +10,9 @@ const EditTaskPopup = (props) => {
   const [priority_number, setPriorityNumber] = useState(
     props.data.priority_number
   )
-  const [reminder_active, setReminderActive] = useState(false)
+  const [reminder_active, setReminderActive] = useState(
+    props.data.reminder_active
+  )
   const [reminder_time, setReminderTime] = useState(props.data.reminder_time)
   const [completed, setCompleted] = useState(props.data.completed)
   const [dateTimeInput, setDateTimeInput] = useState(new Date())
@@ -26,10 +28,26 @@ const EditTaskPopup = (props) => {
     setReminderActive(props.data.reminder_active)
     setReminderTime(props.data.reminder_time)
     setCompleted(props.data.completed)
-    toggleStarText()
-    toggleStarButtonText()
-    toggleDisplayText()
-    toggleReminderText()
+    if (props.data.reminder_active) {
+      setReminderText("Delete reminder")
+    } else {
+      setReminderText("Set reminder")
+    }
+    if (props.data.reminder_active) {
+      setDisplayText("Reminder is set")
+    } else {
+      setDisplayText("Reminder is not set")
+    }
+    if (props.data.star) {
+      setStarButtonText("Set as unimportant")
+    } else {
+      setStarButtonText("Set as important")
+    }
+    if (props.data.star) {
+      setStarText("Marked as important")
+    } else {
+      setStarText("Not marked as important")
+    }
   }
   const toggleReminderText = () => {
     if (!reminder_active) {
@@ -40,9 +58,9 @@ const EditTaskPopup = (props) => {
   }
   const toggleDisplayText = () => {
     if (!reminder_active) {
-      setDisplayText("Reminder is not set")
-    } else {
       setDisplayText("Reminder is set")
+    } else {
+      setDisplayText("Reminder is not set")
     }
   }
   const toggleStarButtonText = () => {
@@ -83,7 +101,6 @@ const EditTaskPopup = (props) => {
     const seconds = String(dateTime.getSeconds()).padStart(2, "0")
     const formattedDateTime = `${month} ${day} ${year} ${hours}:${minutes}:${seconds}`
     setReminderTime(formattedDateTime)
-    setDisplayText("Reminder has been set")
   }
   const handleCancel = () => {
     props.setPopup(false)
@@ -101,9 +118,13 @@ const EditTaskPopup = (props) => {
       reminder_time: reminder_time,
       completed: completed,
     }
-    Axios.put("https://mern-final-project-backend.onrender.com/task/edit-task", task, {
-      withCredentials: true,
-    })
+    Axios.put(
+      "https://mern-final-project-backend.onrender.com/task/edit-task",
+      task,
+      {
+        withCredentials: true,
+      }
+    )
       .then((res) => {
         if (res.data.status === 500) {
           console.log(res.data.error)
@@ -133,9 +154,9 @@ const EditTaskPopup = (props) => {
       setReminderText("Set reminder")
     }
     if (props.data.reminder_active) {
-      setDisplayText("Reminder is not set")
-    } else {
       setDisplayText("Reminder is set")
+    } else {
+      setDisplayText("Reminder is not set")
     }
     if (props.data.star) {
       setStarButtonText("Set as unimportant")

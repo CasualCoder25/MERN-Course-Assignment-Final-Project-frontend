@@ -1,3 +1,4 @@
-# 1.1.0 - ToDo List frontend:
+# 1.1.1 - ToDo List frontend:
 
+- BugFixes in EditTaskPopup and CreateTaskPopup
 - Added SlideShow

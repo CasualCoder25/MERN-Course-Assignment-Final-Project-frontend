@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import { Modal, ModalBody, ModalFooter } from "reactstrap"
 import Axios from "axios"
 import * as Components from "../Components"
@@ -12,9 +12,37 @@ const CreateTaskPopup = (props) => {
   const [reminder_time, setReminderTime] = useState("")
   const [completed, setCompleted] = useState(false)
   const [dateTimeInput, setDateTimeInput] = useState(new Date())
-  const [starButtonText, setStarButtonText] = useState("Set as important")
-  const [starText, setStarText] = useState("Not marked as important")
-  const [displayText, setDisplayText] = useState("Reminder is not set")
+  const [starButtonText, setStarButtonText] = useState("")
+  const [starText, setStarText] = useState("")
+  const [displayText, setDisplayText] = useState("")
+  const [reminderText, setReminderText] = useState("")
+  const reset = () => {
+    setTaskName("")
+    setTaskDesc("")
+    setStar(false)
+    setPriorityNumber(0)
+    setReminderActive(false)
+    setReminderTime("")
+    setCompleted("")
+    setReminderText("Set reminder")
+    setDisplayText("Reminder is not set")
+    setStarButtonText("Set as important")
+    setStarText("Not marked as important")
+  }
+  const toggleReminderText = () => {
+    if (!reminder_active) {
+      setReminderText("Delete reminder")
+    } else {
+      setReminderText("Set reminder")
+    }
+  }
+  const toggleDisplayText = () => {
+    if (!reminder_active) {
+      setDisplayText("Reminder is set")
+    } else {
+      setDisplayText("Reminder is not set")
+    }
+  }
   const toggleStarButtonText = () => {
     if (!star) {
       setStarButtonText("Set as unimportant")
@@ -29,52 +57,6 @@ const CreateTaskPopup = (props) => {
       setStarText("Not marked as important")
     }
   }
-  const reset = () => {
-    setTaskName("")
-    setTaskDesc("")
-    setStar(false)
-    setPriorityNumber(0)
-    setReminderActive(false)
-    setReminderTime("")
-    setCompleted(false)
-    setDisplayText("Reminder is not set")
-    setStarButtonText("Set as important")
-    setStarText("Not marked as important")
-  }
-  const handleSubmit = (event) => {
-    event.preventDefault()
-    const data = {
-      task_name: task_name,
-      task_description: task_desc,
-      star: star,
-      priority_number: priority_number,
-      reminder_active: reminder_active,
-      reminder_time: reminder_time,
-      completed: completed,
-    }
-    Axios.post("https://mern-final-project-backend.onrender.com/task/create-task", data, {
-      withCredentials: true,
-    })
-      .then((res) => {
-        if (res.data.status === 500) {
-          console.log(res.data.error)
-          alert("error")
-        } else {
-          props.refresh()
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-        alert("error")
-      })
-    props.setPopup(false)
-    reset()
-  }
-  const handleCancel = () => {
-    props.setPopup(false)
-    reset()
-  }
-
   const sendDateTime = (dateTimeInput) => {
     const dateTime = new Date(dateTimeInput)
     const monthString = [
@@ -99,9 +81,50 @@ const CreateTaskPopup = (props) => {
     const seconds = String(dateTime.getSeconds()).padStart(2, "0")
     const formattedDateTime = `${month} ${day} ${year} ${hours}:${minutes}:${seconds}`
     setReminderTime(formattedDateTime)
-    setDisplayText("Reminder has been set")
   }
-
+  const handleCancel = () => {
+    props.setPopup(false)
+    reset()
+  }
+  const handleSubmit = (event) => {
+    event.preventDefault()
+    const data = {
+      task_name: task_name,
+      task_description: task_desc,
+      star: star,
+      priority_number: priority_number,
+      reminder_active: reminder_active,
+      reminder_time: reminder_time,
+      completed: completed,
+    }
+    Axios.post(
+      "https://mern-final-project-backend.onrender.com/task/create-task",
+      data,
+      {
+        withCredentials: true,
+      }
+    )
+      .then((res) => {
+        if (res.data.status === 500) {
+          console.log(res.data.error)
+          alert("error")
+        } else {
+          props.refresh()
+        }
+      })
+      .catch((err) => {
+        console.log(err)
+        alert("error")
+      })
+    props.setPopup(false)
+    reset()
+  }
+  useEffect(() => {
+    setReminderText("Set reminder")
+    setDisplayText("Reminder is not set")
+    setStarButtonText("Set as important")
+    setStarText("Not marked as important")
+  }, [])
   return (
     <Modal isOpen={props.popup}>
       <Components.StyledModalHeader>
@@ -128,11 +151,13 @@ const CreateTaskPopup = (props) => {
           />
           <Components.Button
             onClick={() => {
-              setReminderActive(true)
               sendDateTime(dateTimeInput)
+              toggleDisplayText()
+              toggleReminderText()
+              setReminderActive(!reminder_active)
             }}
           >
-            Set Reminder
+            {reminderText}
           </Components.Button>
           <Components.Paragraph>{displayText}</Components.Paragraph>
           <Components.Title>Important Task?</Components.Title>

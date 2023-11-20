@@ -19,7 +19,7 @@ export const TaskHeaderContainer = styled.div`
   justify-content: space-between;
   border-radius: 10px 10px 0 0;
   background-color: #fff;
-  opacity: 0.7;
+  opacity: 0.8;
   padding: 4%;
   ${(props) => (props.height > props.width ? `flex-wrap: wrap;` : null)}
 `
@@ -37,7 +37,7 @@ export const TaskToggleContainer = styled.div`
   align-items: center;
   border-top: 1px solid rgb(17, 17, 40);
   background-color: #fff;
-  opacity: 0.7;
+  opacity: 0.8;
   padding: 2% 4%;
   ${(props) =>
     props.height > props.width

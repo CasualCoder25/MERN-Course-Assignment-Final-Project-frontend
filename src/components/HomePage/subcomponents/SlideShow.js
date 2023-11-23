@@ -9,19 +9,23 @@ const SlideShow = () => {
   const [Image1, setImage1] = useState(true)
   const [Image2, setImage2] = useState(false)
   const [Image3, setImage3] = useState(false)
+  const [Timeout, setTimeoutID] = useState(null)
   useEffect(() => {
     if (currentSlide === 1) {
       setImage2(false)
       setImage3(false)
       setImage1(true)
+      setTimeoutID(setTimeout(() => setCurrentSlide(2), 5000))
     } else if (currentSlide === 2) {
       setImage1(false)
       setImage3(false)
       setImage2(true)
+      setTimeoutID(setTimeout(() => setCurrentSlide(3), 5000))
     } else if (currentSlide === 3) {
       setImage2(false)
       setImage1(false)
       setImage3(true)
+      setTimeoutID(setTimeout(() => setCurrentSlide(1), 5000))
     }
   }, [currentSlide])
   return (
@@ -61,13 +65,25 @@ const SlideShow = () => {
         </Components.SlidesContainer>
         <Components.ButtonContainer style={{ textAlign: "center" }}>
           <Components.Button
-            onClick={() => setCurrentSlide(1)}
+            display={Image1}
+            onClick={() => {
+              clearTimeout(Timeout)
+              setCurrentSlide(1)
+            }}
           ></Components.Button>
           <Components.Button
-            onClick={() => setCurrentSlide(2)}
+            display={Image2}
+            onClick={() => {
+              clearTimeout(Timeout)
+              setCurrentSlide(2)
+            }}
           ></Components.Button>
           <Components.Button
-            onClick={() => setCurrentSlide(3)}
+            display={Image3}
+            onClick={() => {
+              clearTimeout(Timeout)
+              setCurrentSlide(3)
+            }}
           ></Components.Button>
         </Components.ButtonContainer>
       </Components.SlideShowContainer>

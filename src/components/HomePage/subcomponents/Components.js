@@ -57,4 +57,5 @@ export const Button = styled.button`
   opacity: 0.6;
   border: none;
   margin: 2px;
+  ${(props) => (props.display ? `opacity: 0.9;` : null)}
 `
